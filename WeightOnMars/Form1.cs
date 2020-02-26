@@ -68,7 +68,7 @@ namespace WeightOnMars
         {
             errorMessage = null;
             name = text;
-
+            //validations for empty space, length, and letter characters that I added
             if (String.IsNullOrEmpty(text))
             {
                 errorMessage = "Can't be empty";
@@ -77,6 +77,11 @@ namespace WeightOnMars
             if (text.Length <2)
             {
                 errorMessage = "Enter at least 2 letters";
+                return false;
+            }
+            if (text.Any(char.IsLetter))
+            {
+                errorMessage = "Only enter letters";
                 return false;
             }
             return true;
